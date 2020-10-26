@@ -5,15 +5,35 @@
   <body>
     <a href="index.html">about page</a> -
     <a href="login.html">login page</a>
+    <script>
+      function validateForm() {
+        var n = document.forms["myForm"]["fname"].value;
+        var p = document.forms["myForm"]["password"].value;
+        var e = document.forms["myForm"]["email"].value;
+        if (n == "") {
+          alert("Name must be filled out");
+          return false;
+        } else if (e == "") {
+          alert("Please provide your Email!");
+          document.myForm.EMail.focus();
+          return false;
+        } else if (p.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          return false;
+        }
+      }
+    </script>
     <h1>Html Form</h1>
-    <form onsubmit="">
-      <label>username : <input type="text" /></label>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+      <label>username : <input name="fname" type="text" /></label>
       <br />
-      <label>email : <input type="email" /></label>
+      <label>email : <input type="email" name="email" /></label>
       <br />
-      <label>password : <input type="password" /></label>
+      <label>password : <input name="password" type="password" /></label>
       <br />
-      <label>password (again) : <input type="password" /></label>
+      <label
+        >password (again) : <input name="password" type="password"
+      /></label>
       <br />
       <hr />
 
